@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <form>
+      <div class="margin-top-10">
+        <label for="userName">User Name : </label>
+        <input
+          type="text"
+          id="userName"
+          placeholder="Please enter User Name"
+          onkeyup="checkMinLength('userName')"
+        />
+      </div>
+      <div class="margin-top-10">
+        <label for="password">Password : </label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Please enter Password"
+          onkeyup="checkMinLength('password')"
+        />
+      </div>
+    </form>
+  </body>
+  <script>
+    const minimumLengthForUserName = 3;
+    const minimumLengthForPassword = 8;
+
+    function checkMinLength(idOfTheElement) {
+      let element = document.getElementById(idOfTheElement);
+      let minLength = 0;
+      switch (idOfTheElement) {
+        case "userName":
+          minLength = minimumLengthForUserName;
+          break;
+        case "password":
+          minLength = minimumLengthForPassword;
+          break;
+      }
+      if (element.value.length < minLength) {
+        element.style.color = "red";
+      } else {
+        element.style.color = "black";
+      }
+    }
+  </script>
+</html>
